@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+		<title>Sample 105 page</title>
+	</head>
+<body ng-app="105Demo">
+<div class="container">
+	<div class="page-header">
+		<h1>105 Demo Activities</h1>
+	</div>
+
+	<div ng-controller="luckyNumberCtrl" ng-init="luckyButton()">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 class="panel-title">Mini-lab 2: Lucky Page</h2>
+			</div>	
+			<div class="panel-body">	
+				<p>Lucky Number: {{ luckyNumber }}</p>
+				<p>Lucky Letter: {{ luckyLetter }}</p>
+				<p>Lucky Word: {{ luckyWord }}</p>
+				<button class="btn" ng-click="luckyButton()">Click me!</button>
+			</div>
+		</div>
+	</div>
+
+	<div ng-controller="messageBoardCtrl">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 class="panel-title">Lab 2: Message Board</h2>
+			</div>
+			<div class="panel-body">
+				<form role="form">
+				<div class="form-group">
+					<label for="topicField">Topic:</label>	
+					<input id="topicField" class="form-control" ng-model="topic" />
+				</div>
+				<div class="form-group">
+					<label for="nameField">Name:</label>	
+					<input id="nameField" class="form-control" ng-model="name" />
+				</div>
+				<div class="form-group">
+					<label for="messageField">Message:</label>	
+					<input id="messageField" class="form-control" ng-model="message" />
+				</div>
+				<div class="form-group">
+					<label for="colorField">Color:</label>
+					<select id="colorField" ng-model="newColor">
+						<option value="#F5F5DC">Beige</option>
+						<option value="#8FBC8F">Dark Sea Green</option>
+						<option value="#00FF7F">Spring Green</option>
+						<option value="#FFFFE0">Light Yellow</option>
+					</select>	
+				</div>
+				</form>
+				<div class="well" ng-style="{'background-color': newColor}">
+					<h3>{{ topic }} <small>(preview)</small></h3>
+					<p><strong>From:</strong> {{ name }}</p>
+					<p><strong>Message:</strong> {{ message }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div ng-controller="invitationListCtrl">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 class="panel-title">Lab 4: Invitation List</h2>
+			</div>
+			<div class="panel-body">
+				<table class="table table-hover table-striped">
+					<tr>
+						<th>Invited</th>
+						<th>Name</th>
+						<th>State</th>
+						<th>Zip</th>
+					</tr>
+					<tr ng-repeat="person in people">
+						<td><input type="checkbox" ng-model="person.isChecked"/></td>
+						<td>{{ person.name }}</td>
+						<td>{{ person.state }}</td>
+						<td>{{ person.zip }}</td>
+					</tr>
+				</table>
+				<div class="well">
+					<h4 class="title">Invitees</h4>
+					<ul>
+						<li ng-repeat="person in people | filter : {isChecked : true}">{{ person.name }}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div ng-controller="virtualPetCtrl">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 class="panel-title">Programming Project 1: Virtual Pet</h2>
+			</div>
+			<div class="panel-body" ng-init="startInterval">
+				<button class="btn" ng-show="!petBool" ng-click="petBool=true">Start simulation</button>
+				<button class="btn" ng-show="petBool" ng-click="petBool=false">Stop simulation</button>
+				<p><strong>Status:</strong> {{ petStatus }}</p>
+				<p><strong>Action:</strong> {{ petAction }}</p>
+				<p><strong>Timer:</strong> {{ petTimer }}</p>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script type="text/javascript" src="ctrls.js"></script>
+</body>
+</html>

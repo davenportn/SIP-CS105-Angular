@@ -1,0 +1,24 @@
+{
+  "name": "CS 105 Angular Activities",
+  "main": "index.html",
+  "authors": [
+    "Natalie Davenport <ntldvnprt@gmail.com>"
+  ],
+  "description": "2015.12.1 Angular rewrite of CS105 activities.This is the bower project description for this project. Bower was used to install the following dependencies: AngularJS, Angular-Bootstrap, JQuery. To install these dependencies, run `bower install` in the project directory.",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "moduleType": [],
+  "homepage": "", 
+  "dependencies": {
+    "angular-bootstrap": "~0.14.3",
+    "angular": "~1.4.7",
+    "bootstrap": "~3.3.5"
+  }
+}
